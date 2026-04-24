@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield | Live Feed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="live">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Fraud Detection Platform</p>
+        <h1>Live Feed</h1>
+      </div>
+      <div class="status-pill">Monitoring in real time</div>
+    </header>
+
+    <nav class="tabs" aria-label="Primary navigation">
+      <a href="index.html" data-tab="live">Live Feed</a>
+      <a href="ai.html" data-tab="ai">AI Analysis</a>
+      <a href="network.html" data-tab="network">Network</a>
+      <a href="darkweb.html" data-tab="darkweb">Dark Web</a>
+      <a href="settings.html" data-tab="settings">Settings</a>
+    </nav>
+
+    <main class="page-grid">
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Active risk command center</p>
+          <h2>Spot suspicious transactions before they spread.</h2>
+          <p class="muted-text">
+            Track payment activity, identify fraud spikes, and send risky events
+            into the AI engine for deeper investigation.
+          </p>
+        </div>
+        <div class="hero-metric">
+          <span>Threat Score</span>
+          <strong>82%</strong>
+          <p>Elevated anomaly traffic in the last 15 minutes</p>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="card stat-card">
+          <p>Total Transactions</p>
+          <h3>24,891</h3>
+          <span class="trend up">+12.4% today</span>
+        </article>
+        <article class="card stat-card danger">
+          <p>Fraud Detected</p>
+          <h3>312</h3>
+          <span class="trend danger-text">41 critical alerts</span>
+        </article>
+        <article class="card stat-card">
+          <p>Safe Transactions</p>
+          <h3>24,579</h3>
+          <span class="trend safe">98.7% verified</span>
+        </article>
+      </section>
+
+      <section class="card table-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Incoming stream</p>
+            <h2>Recent transaction alerts</h2>
+          </div>
+          <a class="ghost-button" href="ai.html">Open AI Queue</a>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Sender</th>
+                <th>Amount</th>
+                <th>Location</th>
+                <th>Risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="clickable-row" data-href="ai.html">
+                <td>Olivia Chen</td>
+                <td>$8,450</td>
+                <td>Singapore</td>
+                <td><span class="risk-badge high">High</span></td>
+              </tr>
+              <tr class="clickable-row" data-href="ai.html">
+                <td>Marcus Reed</td>
+                <td>$1,120</td>
+                <td>Berlin</td>
+                <td><span class="risk-badge medium">Medium</span></td>
+              </tr>
+              <tr class="clickable-row" data-href="ai.html">
+                <td>Sophia Patel</td>
+                <td>$12,900</td>
+                <td>Dubai</td>
+                <td><span class="risk-badge high">High</span></td>
+              </tr>
+              <tr class="clickable-row" data-href="ai.html">
+                <td>Daniel Kim</td>
+                <td>$540</td>
+                <td>Toronto</td>
+                <td><span class="risk-badge low">Low</span></td>
+              </tr>
+              <tr class="clickable-row" data-href="ai.html">
+                <td>Emma Watson</td>
+                <td>$4,760</td>
+                <td>London</td>
+                <td><span class="risk-badge medium">Medium</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

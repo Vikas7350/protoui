@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield | Dark Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="darkweb">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Fraud Detection Platform</p>
+        <h1>Dark Web</h1>
+      </div>
+      <div class="status-pill danger-pill">Exposure watchlist active</div>
+    </header>
+
+    <nav class="tabs" aria-label="Primary navigation">
+      <a href="index.html" data-tab="live">Live Feed</a>
+      <a href="ai.html" data-tab="ai">AI Analysis</a>
+      <a href="network.html" data-tab="network">Network</a>
+      <a href="darkweb.html" data-tab="darkweb">Dark Web</a>
+      <a href="settings.html" data-tab="settings">Settings</a>
+    </nav>
+
+    <main class="page-grid">
+      <section class="hero-panel compact">
+        <div>
+          <p class="eyebrow">Exposure intelligence</p>
+          <h2>Flagged accounts detected in underground datasets.</h2>
+          <p class="muted-text">
+            These users were matched against leaked credentials, wallets, or
+            brokered account packages circulating on hidden marketplaces.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">High-priority watchlist</p>
+            <h2>Flagged accounts</h2>
+          </div>
+        </div>
+
+        <div class="flagged-list">
+          <article class="flagged-item">
+            <div>
+              <h3>Nora Simmons</h3>
+              <p>Email + wallet leak detected in credential dump</p>
+            </div>
+            <span class="flag-tag">Critical</span>
+          </article>
+          <article class="flagged-item">
+            <div>
+              <h3>Account #A-10483</h3>
+              <p>Matched to resale listing from a known fraud forum</p>
+            </div>
+            <span class="flag-tag">High</span>
+          </article>
+          <article class="flagged-item">
+            <div>
+              <h3>Leo Martinez</h3>
+              <p>Phone number surfaced in phishing kit log archive</p>
+            </div>
+            <span class="flag-tag">Critical</span>
+          </article>
+          <article class="flagged-item">
+            <div>
+              <h3>Account #B-22917</h3>
+              <p>Recovery phrase exposure referenced in wallet theft channel</p>
+            </div>
+            <span class="flag-tag">High</span>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

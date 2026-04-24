@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield | Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="network">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Fraud Detection Platform</p>
+        <h1>Network</h1>
+      </div>
+      <div class="status-pill">Graph synced 2 min ago</div>
+    </header>
+
+    <nav class="tabs" aria-label="Primary navigation">
+      <a href="index.html" data-tab="live">Live Feed</a>
+      <a href="ai.html" data-tab="ai">AI Analysis</a>
+      <a href="network.html" data-tab="network">Network</a>
+      <a href="darkweb.html" data-tab="darkweb">Dark Web</a>
+      <a href="settings.html" data-tab="settings">Settings</a>
+    </nav>
+
+    <main class="page-grid">
+      <section class="hero-panel compact">
+        <div>
+          <p class="eyebrow">Relationship intelligence</p>
+          <h2>Connected accounts and suspicious movement paths.</h2>
+          <p class="muted-text">
+            Use the network view to uncover linked entities, circular transfers,
+            and account clusters with shared risk patterns.
+          </p>
+        </div>
+      </section>
+
+      <section class="stats-grid network-grid">
+        <article class="card stat-card">
+          <p>Linked Accounts</p>
+          <h3>1,284</h3>
+          <span class="trend up">+67 this week</span>
+        </article>
+        <article class="card stat-card">
+          <p>Tracked Transactions</p>
+          <h3>9,432</h3>
+          <span class="trend safe">Stable ingestion</span>
+        </article>
+        <article class="card stat-card danger">
+          <p>Cycle Loops Found</p>
+          <h3>37</h3>
+          <span class="trend danger-text">12 need action</span>
+        </article>
+        <article class="card info-card">
+          <h3>Network Highlights</h3>
+          <p>Three mule-account rings share the same withdrawal endpoint.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

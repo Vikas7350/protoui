@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield | Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="settings">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Fraud Detection Platform</p>
+        <h1>Settings</h1>
+      </div>
+      <div class="status-pill">Workspace preferences</div>
+    </header>
+
+    <nav class="tabs" aria-label="Primary navigation">
+      <a href="index.html" data-tab="live">Live Feed</a>
+      <a href="ai.html" data-tab="ai">AI Analysis</a>
+      <a href="network.html" data-tab="network">Network</a>
+      <a href="darkweb.html" data-tab="darkweb">Dark Web</a>
+      <a href="settings.html" data-tab="settings">Settings</a>
+    </nav>
+
+    <main class="page-grid settings-layout">
+      <section class="card settings-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Alerting</p>
+            <h2>Telegram alerts</h2>
+          </div>
+        </div>
+        <p class="muted-text">
+          Send instant fraud notifications to your investigation team whenever
+          high-risk transactions are detected.
+        </p>
+        <div class="setting-row">
+          <span>Telegram bot connected</span>
+          <span class="pill on">Enabled</span>
+        </div>
+        <div class="setting-row">
+          <span>Critical alerts only</span>
+          <span class="pill">Enabled</span>
+        </div>
+      </section>
+
+      <section class="card settings-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Model ops</p>
+            <h2>Model retraining</h2>
+          </div>
+        </div>
+        <p class="muted-text">
+          Schedule automatic retraining so the fraud engine adapts to fresh
+          transaction behavior and emerging attack patterns.
+        </p>
+        <div class="setting-row">
+          <span>Retraining schedule</span>
+          <span class="pill">Every 7 days</span>
+        </div>
+        <div class="setting-row">
+          <span>Last completed run</span>
+          <span class="pill">3 hours ago</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

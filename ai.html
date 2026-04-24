@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield | AI Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="ai">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Fraud Detection Platform</p>
+        <h1>AI Analysis</h1>
+      </div>
+      <div class="status-pill">Engine confidence 96.2%</div>
+    </header>
+
+    <nav class="tabs" aria-label="Primary navigation">
+      <a href="index.html" data-tab="live">Live Feed</a>
+      <a href="ai.html" data-tab="ai">AI Analysis</a>
+      <a href="network.html" data-tab="network">Network</a>
+      <a href="darkweb.html" data-tab="darkweb">Dark Web</a>
+      <a href="settings.html" data-tab="settings">Settings</a>
+    </nav>
+
+    <main class="page-grid analysis-layout">
+      <section class="hero-panel compact">
+        <div>
+          <p class="eyebrow">6-layer fraud detection engine</p>
+          <h2>AI breakdown for the selected transaction.</h2>
+          <p class="muted-text">
+            Every alert is scored across behavior, geography, velocity, identity,
+            dark web exposure, and network correlation.
+          </p>
+        </div>
+        <div class="hero-metric">
+          <span>Final Risk Score</span>
+          <strong>91%</strong>
+          <p>Escalated for manual review and instant alerting</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Layer by layer</p>
+            <h2>Detection pipeline</h2>
+          </div>
+        </div>
+
+        <div class="layers">
+          <div class="layer-item">
+            <div class="layer-copy">
+              <h3>1. Identity Verification</h3>
+              <p>Mismatch between device profile and recent login pattern.</p>
+            </div>
+            <div class="progress-bar"><span style="width: 78%;"></span></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-copy">
+              <h3>2. Behavioral Analysis</h3>
+              <p>Unusual transfer size relative to historical transaction average.</p>
+            </div>
+            <div class="progress-bar"><span style="width: 86%;"></span></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-copy">
+              <h3>3. Velocity Tracking</h3>
+              <p>Three rapid transactions triggered a burst activity signal.</p>
+            </div>
+            <div class="progress-bar"><span style="width: 93%;"></span></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-copy">
+              <h3>4. Geo-Risk Mapping</h3>
+              <p>Origin location differs sharply from the account home region.</p>
+            </div>
+            <div class="progress-bar"><span style="width: 88%;"></span></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-copy">
+              <h3>5. Dark Web Matching</h3>
+              <p>Email and wallet metadata appear in a recent exposure dataset.</p>
+            </div>
+            <div class="progress-bar"><span style="width: 72%;"></span></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-copy">
+              <h3>6. Network Correlation</h3>
+              <p>Transaction links to two previously flagged beneficiary clusters.</p>
+            </div>
+            <div class="progress-bar"><span style="width: 95%;"></span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
