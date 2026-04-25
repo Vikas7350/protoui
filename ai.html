@@ -16,7 +16,10 @@
         <p class="eyebrow">Fraud Detection Platform</p>
         <h1>AI Analysis</h1>
       </div>
-      <div class="status-pill">Engine confidence 96.2%</div>
+      <div class="topbar-actions">
+        <div class="status-pill">Engine confidence 96.2%</div>
+        <button class="secondary-button compact-button" type="button" data-toast-message="Case summary copied to analyst clipboard.">Copy Case Summary</button>
+      </div>
     </header>
 
     <nav class="tabs" aria-label="Primary navigation">
@@ -27,15 +30,19 @@
       <a href="settings.html" data-tab="settings">Settings</a>
     </nav>
 
-    <main class="page-grid analysis-layout">
+    <main class="page-grid">
       <section class="hero-panel compact">
         <div>
           <p class="eyebrow">6-layer fraud detection engine</p>
-          <h2>AI breakdown for the selected transaction.</h2>
+          <h2>Model reasoning for the selected suspicious transaction.</h2>
           <p class="muted-text">
-            Every alert is scored across behavior, geography, velocity, identity,
-            dark web exposure, and network correlation.
+            The system combines identity, behavior, velocity, geography, dark web,
+            and graph intelligence to assign a final fraud probability.
           </p>
+          <div class="hero-actions">
+            <button class="primary-button" type="button" data-toast-message="Case marked as confirmed fraud.">Mark as Fraud</button>
+            <button class="secondary-button" type="button" data-toast-message="Case sent for manual review.">Send for Review</button>
+          </div>
         </div>
         <div class="hero-metric">
           <span>Final Risk Score</span>
@@ -44,61 +51,203 @@
         </div>
       </section>
 
-      <section class="card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Layer by layer</p>
-            <h2>Detection pipeline</h2>
+      <section class="case-summary-grid">
+        <article class="card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Case summary</p>
+              <h2>Transaction snapshot</h2>
+            </div>
           </div>
-        </div>
+          <div class="summary-grid">
+            <div class="summary-item"><span>Case ID</span><strong>CASE-44129</strong></div>
+            <div class="summary-item"><span>Transaction ID</span><strong>TXN-90314</strong></div>
+            <div class="summary-item"><span>Sender</span><strong>Olivia Chen</strong></div>
+            <div class="summary-item"><span>Recipient</span><strong>Wallet-X9-884</strong></div>
+            <div class="summary-item"><span>Decision</span><strong>High Risk Hold</strong></div>
+            <div class="summary-item"><span>Analyst Owner</span><strong>Maya Singh</strong></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Recommendation</p>
+              <h2>Next best actions</h2>
+            </div>
+          </div>
+          <div class="recommendation-list">
+            <article class="recommendation-item">
+              <h3>Freeze outbound transfer</h3>
+              <p>Block settlement until customer identity is re-verified.</p>
+            </article>
+            <article class="recommendation-item">
+              <h3>Trigger customer callback</h3>
+              <p>Confirm recent device and transfer intent with account holder.</p>
+            </article>
+            <article class="recommendation-item">
+              <h3>Expand graph search</h3>
+              <p>Investigate linked beneficiary and shared withdrawal nodes.</p>
+            </article>
+          </div>
+        </article>
+      </section>
 
-        <div class="layers">
-          <div class="layer-item">
-            <div class="layer-copy">
-              <h3>1. Identity Verification</h3>
-              <p>Mismatch between device profile and recent login pattern.</p>
+      <section class="analysis-grid">
+        <article class="card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Layer by layer</p>
+              <h2>Detection pipeline</h2>
             </div>
-            <div class="progress-bar"><span style="width: 78%;"></span></div>
           </div>
-          <div class="layer-item">
-            <div class="layer-copy">
-              <h3>2. Behavioral Analysis</h3>
-              <p>Unusual transfer size relative to historical transaction average.</p>
+
+          <div class="layers">
+            <div class="layer-item">
+              <div class="layer-copy">
+                <div>
+                  <h3>1. Identity Verification</h3>
+                  <p>Mismatch between known device signature and recent login profile.</p>
+                </div>
+                <strong>78%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 78%;"></span></div>
             </div>
-            <div class="progress-bar"><span style="width: 86%;"></span></div>
-          </div>
-          <div class="layer-item">
-            <div class="layer-copy">
-              <h3>3. Velocity Tracking</h3>
-              <p>Three rapid transactions triggered a burst activity signal.</p>
+            <div class="layer-item">
+              <div class="layer-copy">
+                <div>
+                  <h3>2. Behavioral Analysis</h3>
+                  <p>Transfer amount is 4.2x above the sender's weekly average.</p>
+                </div>
+                <strong>86%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 86%;"></span></div>
             </div>
-            <div class="progress-bar"><span style="width: 93%;"></span></div>
-          </div>
-          <div class="layer-item">
-            <div class="layer-copy">
-              <h3>4. Geo-Risk Mapping</h3>
-              <p>Origin location differs sharply from the account home region.</p>
+            <div class="layer-item">
+              <div class="layer-copy">
+                <div>
+                  <h3>3. Velocity Tracking</h3>
+                  <p>Three transfers fired within 90 seconds from the same profile.</p>
+                </div>
+                <strong>93%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 93%;"></span></div>
             </div>
-            <div class="progress-bar"><span style="width: 88%;"></span></div>
-          </div>
-          <div class="layer-item">
-            <div class="layer-copy">
-              <h3>5. Dark Web Matching</h3>
-              <p>Email and wallet metadata appear in a recent exposure dataset.</p>
+            <div class="layer-item">
+              <div class="layer-copy">
+                <div>
+                  <h3>4. Geo-Risk Mapping</h3>
+                  <p>Current transfer region differs from the home region baseline.</p>
+                </div>
+                <strong>88%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 88%;"></span></div>
             </div>
-            <div class="progress-bar"><span style="width: 72%;"></span></div>
-          </div>
-          <div class="layer-item">
-            <div class="layer-copy">
-              <h3>6. Network Correlation</h3>
-              <p>Transaction links to two previously flagged beneficiary clusters.</p>
+            <div class="layer-item">
+              <div class="layer-copy">
+                <div>
+                  <h3>5. Dark Web Matching</h3>
+                  <p>Wallet and email metadata were seen in a recent leak dataset.</p>
+                </div>
+                <strong>72%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 72%;"></span></div>
             </div>
-            <div class="progress-bar"><span style="width: 95%;"></span></div>
+            <div class="layer-item">
+              <div class="layer-copy">
+                <div>
+                  <h3>6. Network Correlation</h3>
+                  <p>Recipient is linked to two previously flagged fraud clusters.</p>
+                </div>
+                <strong>95%</strong>
+              </div>
+              <div class="progress-bar"><span style="width: 95%;"></span></div>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="stack-grid">
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Feature contribution</p>
+                <h2>Driver importance</h2>
+              </div>
+            </div>
+
+            <div class="feature-bars">
+              <div class="feature-row">
+                <span>Abnormal transfer amount</span>
+                <div class="feature-bar"><span style="width: 92%;"></span></div>
+                <strong>+0.31</strong>
+              </div>
+              <div class="feature-row">
+                <span>Unusual destination pattern</span>
+                <div class="feature-bar"><span style="width: 78%;"></span></div>
+                <strong>+0.24</strong>
+              </div>
+              <div class="feature-row">
+                <span>Device trust mismatch</span>
+                <div class="feature-bar"><span style="width: 70%;"></span></div>
+                <strong>+0.18</strong>
+              </div>
+              <div class="feature-row">
+                <span>Rapid repeat velocity</span>
+                <div class="feature-bar"><span style="width: 84%;"></span></div>
+                <strong>+0.27</strong>
+              </div>
+              <div class="feature-row">
+                <span>Dark web exposure match</span>
+                <div class="feature-bar"><span style="width: 58%;"></span></div>
+                <strong>+0.12</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Signals</p>
+                <h2>Risk signals raised</h2>
+              </div>
+            </div>
+
+            <div class="signals-list">
+              <article class="signal-item">
+                <span class="signal-index">1</span>
+                <div>
+                  <h3>Geo jump detected</h3>
+                  <p>Account activity moved from London to Singapore within 24 minutes.</p>
+                </div>
+              </article>
+              <article class="signal-item">
+                <span class="signal-index">2</span>
+                <div>
+                  <h3>High-value deviation</h3>
+                  <p>Payment size exceeds the sender's rolling median by more than 300%.</p>
+                </div>
+              </article>
+              <article class="signal-item">
+                <span class="signal-index">3</span>
+                <div>
+                  <h3>Linked risky recipient</h3>
+                  <p>Recipient account is part of a hub previously tied to mule activity.</p>
+                </div>
+              </article>
+              <article class="signal-item">
+                <span class="signal-index">4</span>
+                <div>
+                  <h3>Credential exposure</h3>
+                  <p>Sender email appears in a dark web credential leak from this month.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </article>
       </section>
     </main>
   </div>
+
+  <div class="toast global-toast" id="globalToast" aria-live="polite"></div>
 
   <script src="js/script.js"></script>
 </body>

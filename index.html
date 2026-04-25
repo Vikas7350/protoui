@@ -16,7 +16,10 @@
         <p class="eyebrow">Fraud Detection Platform</p>
         <h1>Live Feed</h1>
       </div>
-      <div class="status-pill">Monitoring in real time</div>
+      <div class="topbar-actions">
+        <div class="status-pill">Monitoring in real time</div>
+        <button class="secondary-button compact-button" type="button" data-toast-message="War room snapshot exported.">Export Snapshot</button>
+      </div>
     </header>
 
     <nav class="tabs" aria-label="Primary navigation">
@@ -31,11 +34,15 @@
       <section class="hero-panel">
         <div>
           <p class="eyebrow">Active risk command center</p>
-          <h2>Spot suspicious transactions before they spread.</h2>
+          <h2>Detect suspicious payments before they become confirmed loss events.</h2>
           <p class="muted-text">
-            Track payment activity, identify fraud spikes, and send risky events
-            into the AI engine for deeper investigation.
+            Review live transactions, monitor fraud velocity, and route the most
+            urgent alerts into investigation workflows with a single click.
           </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="ai.html">Review Priority Queue</a>
+            <a class="secondary-button" href="network.html">Open Network Map</a>
+          </div>
         </div>
         <div class="hero-metric">
           <span>Threat Score</span>
@@ -45,79 +52,292 @@
       </section>
 
       <section class="stats-grid">
-        <article class="card stat-card">
+        <article class="card stat-card accent-card">
+          <div class="stat-header">
+            <span class="stat-icon">◎</span>
+            <span class="delta-pill up">+128 today</span>
+          </div>
           <p>Total Transactions</p>
-          <h3>24,891</h3>
-          <span class="trend up">+12.4% today</span>
+          <h3 class="counter" data-target="24891">0</h3>
+          <span class="trend up">+12.4% versus yesterday</span>
         </article>
+
         <article class="card stat-card danger">
+          <div class="stat-header">
+            <span class="stat-icon danger-icon">!</span>
+            <span class="delta-pill danger-text">+19 critical</span>
+          </div>
           <p>Fraud Detected</p>
-          <h3>312</h3>
-          <span class="trend danger-text">41 critical alerts</span>
+          <h3 class="counter" data-target="312">0</h3>
+          <span class="trend danger-text">41 alerts need analyst review</span>
         </article>
-        <article class="card stat-card">
+
+        <article class="card stat-card safe-card">
+          <div class="stat-header">
+            <span class="stat-icon safe-icon">✓</span>
+            <span class="delta-pill safe">+109 auto-cleared</span>
+          </div>
           <p>Safe Transactions</p>
-          <h3>24,579</h3>
-          <span class="trend safe">98.7% verified</span>
+          <h3 class="counter" data-target="24579">0</h3>
+          <span class="trend safe">98.7% verified successfully</span>
         </article>
       </section>
 
-      <section class="card table-card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Incoming stream</p>
-            <h2>Recent transaction alerts</h2>
+      <section class="workspace-grid">
+        <article class="card main-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Analyst workspace</p>
+              <h2>Transaction command center</h2>
+            </div>
+            <div class="filter-toolbar">
+              <input id="txnSearch" class="toolbar-input" type="text" placeholder="Search sender or TXN ID">
+              <select id="riskFilter" class="toolbar-select">
+                <option value="all">All Risk</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+              <select id="locationFilter" class="toolbar-select">
+                <option value="all">All Locations</option>
+                <option value="singapore">Singapore</option>
+                <option value="berlin">Berlin</option>
+                <option value="dubai">Dubai</option>
+                <option value="toronto">Toronto</option>
+                <option value="london">London</option>
+                <option value="new york">New York</option>
+              </select>
+            </div>
           </div>
-          <a class="ghost-button" href="ai.html">Open AI Queue</a>
-        </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Sender</th>
-                <th>Amount</th>
-                <th>Location</th>
-                <th>Risk</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="clickable-row" data-href="ai.html">
-                <td>Olivia Chen</td>
-                <td>$8,450</td>
-                <td>Singapore</td>
-                <td><span class="risk-badge high">High</span></td>
-              </tr>
-              <tr class="clickable-row" data-href="ai.html">
-                <td>Marcus Reed</td>
-                <td>$1,120</td>
-                <td>Berlin</td>
-                <td><span class="risk-badge medium">Medium</span></td>
-              </tr>
-              <tr class="clickable-row" data-href="ai.html">
-                <td>Sophia Patel</td>
-                <td>$12,900</td>
-                <td>Dubai</td>
-                <td><span class="risk-badge high">High</span></td>
-              </tr>
-              <tr class="clickable-row" data-href="ai.html">
-                <td>Daniel Kim</td>
-                <td>$540</td>
-                <td>Toronto</td>
-                <td><span class="risk-badge low">Low</span></td>
-              </tr>
-              <tr class="clickable-row" data-href="ai.html">
-                <td>Emma Watson</td>
-                <td>$4,760</td>
-                <td>London</td>
-                <td><span class="risk-badge medium">Medium</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <section class="dashboard-duo">
+            <article class="card inner-card chart-card">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Trend</p>
+                  <h2>Fraud activity over time</h2>
+                </div>
+              </div>
+              <canvas id="fraudTrendChart" width="600" height="260" aria-label="Fraud trend chart"></canvas>
+            </article>
+
+            <article class="card inner-card chart-card donut-panel">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Distribution</p>
+                  <h2>Safe vs fraud</h2>
+                </div>
+              </div>
+              <canvas id="fraudSplitChart" width="320" height="260" aria-label="Fraud split chart"></canvas>
+              <div class="donut-legend">
+                <div><span class="legend-dot safe-fill"></span>Safe Transactions</div>
+                <div><span class="legend-dot danger-fill"></span>Fraud Transactions</div>
+              </div>
+            </article>
+          </section>
+
+          <section class="card inner-card table-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Incoming stream</p>
+                <h2>Live transaction monitoring</h2>
+              </div>
+              <div class="live-indicator">
+                <span class="pulse-dot"></span>
+                <span>New events every few seconds</span>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>TXN ID</th>
+                    <th>Sender</th>
+                    <th>Amount</th>
+                    <th>Location</th>
+                    <th>Score</th>
+                    <th>Risk</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionTableBody">
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90314" data-sender="Olivia Chen" data-amount="$8,450" data-location="Singapore" data-score="91" data-risk="High">
+                    <td>TXN-90314</td>
+                    <td>Olivia Chen</td>
+                    <td>$8,450</td>
+                    <td>Singapore</td>
+                    <td>91</td>
+                    <td><span class="risk-badge high">High</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90313" data-sender="Marcus Reed" data-amount="$1,120" data-location="Berlin" data-score="58" data-risk="Medium">
+                    <td>TXN-90313</td>
+                    <td>Marcus Reed</td>
+                    <td>$1,120</td>
+                    <td>Berlin</td>
+                    <td>58</td>
+                    <td><span class="risk-badge medium">Medium</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90312" data-sender="Sophia Patel" data-amount="$12,900" data-location="Dubai" data-score="94" data-risk="High">
+                    <td>TXN-90312</td>
+                    <td>Sophia Patel</td>
+                    <td>$12,900</td>
+                    <td>Dubai</td>
+                    <td>94</td>
+                    <td><span class="risk-badge high">High</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90311" data-sender="Daniel Kim" data-amount="$540" data-location="Toronto" data-score="18" data-risk="Low">
+                    <td>TXN-90311</td>
+                    <td>Daniel Kim</td>
+                    <td>$540</td>
+                    <td>Toronto</td>
+                    <td>18</td>
+                    <td><span class="risk-badge low">Low</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90310" data-sender="Emma Watson" data-amount="$4,760" data-location="London" data-score="63" data-risk="Medium">
+                    <td>TXN-90310</td>
+                    <td>Emma Watson</td>
+                    <td>$4,760</td>
+                    <td>London</td>
+                    <td>63</td>
+                    <td><span class="risk-badge medium">Medium</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90309" data-sender="Noah Ahmed" data-amount="$980" data-location="Doha" data-score="33" data-risk="Low">
+                    <td>TXN-90309</td>
+                    <td>Noah Ahmed</td>
+                    <td>$980</td>
+                    <td>Doha</td>
+                    <td>33</td>
+                    <td><span class="risk-badge low">Low</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90308" data-sender="Ava Brooks" data-amount="$7,280" data-location="New York" data-score="74" data-risk="High">
+                    <td>TXN-90308</td>
+                    <td>Ava Brooks</td>
+                    <td>$7,280</td>
+                    <td>New York</td>
+                    <td>74</td>
+                    <td><span class="risk-badge high">High</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90307" data-sender="Liam Foster" data-amount="$2,310" data-location="Sydney" data-score="47" data-risk="Medium">
+                    <td>TXN-90307</td>
+                    <td>Liam Foster</td>
+                    <td>$2,310</td>
+                    <td>Sydney</td>
+                    <td>47</td>
+                    <td><span class="risk-badge medium">Medium</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90306" data-sender="Mia Johnson" data-amount="$360" data-location="Boston" data-score="21" data-risk="Low">
+                    <td>TXN-90306</td>
+                    <td>Mia Johnson</td>
+                    <td>$360</td>
+                    <td>Boston</td>
+                    <td>21</td>
+                    <td><span class="risk-badge low">Low</span></td>
+                  </tr>
+                  <tr class="clickable-row" data-href="ai.html" data-txn-id="TXN-90305" data-sender="Isabella Rossi" data-amount="$9,940" data-location="Milan" data-score="88" data-risk="High">
+                    <td>TXN-90305</td>
+                    <td>Isabella Rossi</td>
+                    <td>$9,940</td>
+                    <td>Milan</td>
+                    <td>88</td>
+                    <td><span class="risk-badge high">High</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </article>
+
+        <aside class="workspace-sidebar">
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Priority queue</p>
+                <h2>Analyst actions</h2>
+              </div>
+            </div>
+            <div class="queue-list">
+              <article class="queue-item">
+                <div>
+                  <h3>Escalate Singapore burst</h3>
+                  <p>4 related high-risk transfers in the last 6 minutes.</p>
+                </div>
+                <span class="risk-badge high">P1</span>
+              </article>
+              <article class="queue-item">
+                <div>
+                  <h3>Verify London account cluster</h3>
+                  <p>Beneficiary overlap with prior mule behavior.</p>
+                </div>
+                <span class="risk-badge medium">P2</span>
+              </article>
+              <article class="queue-item">
+                <div>
+                  <h3>Review manual hold release</h3>
+                  <p>Customer callback completed, waiting final clearance.</p>
+                </div>
+                <span class="risk-badge low">P3</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Threat notes</p>
+                <h2>Recent alerts</h2>
+              </div>
+            </div>
+            <div class="timeline-list">
+              <article class="timeline-item">
+                <span class="timeline-dot danger-fill"></span>
+                <div>
+                  <h3>09:12</h3>
+                  <p>Velocity rule fired on Account #A-10483 after 3 rapid withdrawals.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div>
+                  <h3>09:06</h3>
+                  <p>Dark web match updated for wallet metadata tied to Olivia Chen.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot safe-fill"></span>
+                <div>
+                  <h3>08:58</h3>
+                  <p>Two medium-risk cases auto-cleared after device trust validation.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </aside>
       </section>
     </main>
   </div>
+
+  <div class="modal hidden" id="transactionModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close details">×</button>
+      <p class="eyebrow">Transaction Preview</p>
+      <h2 id="modalTitle">Selected transaction</h2>
+      <div class="modal-grid">
+        <div class="modal-row"><span>TXN ID</span><strong id="modalTxnId">-</strong></div>
+        <div class="modal-row"><span>Sender</span><strong id="modalSender">-</strong></div>
+        <div class="modal-row"><span>Amount</span><strong id="modalAmount">-</strong></div>
+        <div class="modal-row"><span>Location</span><strong id="modalLocation">-</strong></div>
+        <div class="modal-row"><span>Risk Score</span><strong id="modalScore">-</strong></div>
+        <div class="modal-row"><span>Risk Level</span><strong id="modalRisk">-</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button class="primary-button" type="button" id="openAiAnalysis">Open AI Analysis</button>
+        <button class="secondary-button" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast global-toast" id="globalToast" aria-live="polite"></div>
 
   <script src="js/script.js"></script>
 </body>

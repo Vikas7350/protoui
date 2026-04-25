@@ -16,7 +16,10 @@
         <p class="eyebrow">Fraud Detection Platform</p>
         <h1>Network</h1>
       </div>
-      <div class="status-pill">Graph synced 2 min ago</div>
+      <div class="topbar-actions">
+        <div class="status-pill">Graph synced 2 min ago</div>
+        <button class="secondary-button compact-button" type="button" data-toast-message="Network cluster shared with investigations.">Share Cluster</button>
+      </div>
     </header>
 
     <nav class="tabs" aria-label="Primary navigation">
@@ -31,37 +34,143 @@
       <section class="hero-panel compact">
         <div>
           <p class="eyebrow">Relationship intelligence</p>
-          <h2>Connected accounts and suspicious movement paths.</h2>
+          <h2>Connected accounts, movement paths, and suspicious hubs.</h2>
           <p class="muted-text">
-            Use the network view to uncover linked entities, circular transfers,
-            and account clusters with shared risk patterns.
+            Use the network view to identify linked entities, transaction cycles,
+            and concentration points where fraud activity spreads.
           </p>
         </div>
       </section>
 
       <section class="stats-grid network-grid">
-        <article class="card stat-card">
-          <p>Linked Accounts</p>
-          <h3>1,284</h3>
-          <span class="trend up">+67 this week</span>
+        <article class="card stat-card accent-card">
+          <div class="stat-header">
+            <span class="stat-icon">◌</span>
+            <span class="delta-pill up">+67 this week</span>
+          </div>
+          <p>Total Accounts</p>
+          <h3 class="counter" data-target="1284">0</h3>
+          <span class="trend up">New entities mapped today</span>
         </article>
         <article class="card stat-card">
-          <p>Tracked Transactions</p>
-          <h3>9,432</h3>
-          <span class="trend safe">Stable ingestion</span>
+          <div class="stat-header">
+            <span class="stat-icon">⇄</span>
+            <span class="delta-pill up">+432 tracked</span>
+          </div>
+          <p>Total Transactions</p>
+          <h3 class="counter" data-target="9432">0</h3>
+          <span class="trend safe">Steady graph ingestion</span>
         </article>
         <article class="card stat-card danger">
-          <p>Cycle Loops Found</p>
-          <h3>37</h3>
-          <span class="trend danger-text">12 need action</span>
+          <div class="stat-header">
+            <span class="stat-icon danger-icon">∞</span>
+            <span class="delta-pill danger-text">+5 overnight</span>
+          </div>
+          <p>Cycles Detected</p>
+          <h3 class="counter" data-target="37">0</h3>
+          <span class="trend danger-text">12 loops require action</span>
         </article>
-        <article class="card info-card">
-          <h3>Network Highlights</h3>
-          <p>Three mule-account rings share the same withdrawal endpoint.</p>
+      </section>
+
+      <section class="network-layout">
+        <article class="card graph-placeholder">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Graph view</p>
+              <h2>Suspicious network map</h2>
+            </div>
+          </div>
+          <div class="graph-box">
+            <div class="graph-node center-node">Core Hub</div>
+            <div class="graph-node node-a">A-10483</div>
+            <div class="graph-node node-b">B-22917</div>
+            <div class="graph-node node-c">Wallet-X9</div>
+            <div class="graph-node node-d">Mule-22</div>
+            <div class="graph-line line-a"></div>
+            <div class="graph-line line-b"></div>
+            <div class="graph-line line-c"></div>
+            <div class="graph-line line-d"></div>
+          </div>
+        </article>
+
+        <article class="stack-grid">
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Watchlist</p>
+                <h2>Hub accounts</h2>
+              </div>
+            </div>
+
+            <div class="hub-list">
+              <div class="hub-item">
+                <div>
+                  <h3>Account #A-10483</h3>
+                  <p>18 connected beneficiaries and 4 shared devices.</p>
+                </div>
+                <span class="risk-badge high">High</span>
+              </div>
+              <div class="hub-item">
+                <div>
+                  <h3>Wallet-X9-884</h3>
+                  <p>High-frequency cash-out destination across 3 clusters.</p>
+                </div>
+                <span class="risk-badge medium">Medium</span>
+              </div>
+              <div class="hub-item">
+                <div>
+                  <h3>Merchant Node-22</h3>
+                  <p>Recurring pass-through behavior with low retention time.</p>
+                </div>
+                <span class="risk-badge high">High</span>
+              </div>
+              <div class="hub-item">
+                <div>
+                  <h3>Account #C-33190</h3>
+                  <p>Strong overlap with two prior mule-account investigations.</p>
+                </div>
+                <span class="risk-badge medium">Medium</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Cluster insights</p>
+                <h2>Network health summary</h2>
+              </div>
+            </div>
+            <div class="timeline-list">
+              <article class="timeline-item">
+                <span class="timeline-dot danger-fill"></span>
+                <div>
+                  <h3>Ring 14 expanded</h3>
+                  <p>Three new beneficiaries linked through shared withdrawal device.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div>
+                  <h3>Cash-out hub stable</h3>
+                  <p>Wallet-X9 still anchors the largest suspicious cluster by volume.</p>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot safe-fill"></span>
+                <div>
+                  <h3>False positive reduced</h3>
+                  <p>Device trust rule removed 6 low-risk edges from this graph.</p>
+                </div>
+              </article>
+            </div>
+          </section>
         </article>
       </section>
     </main>
   </div>
+
+  <div class="toast global-toast" id="globalToast" aria-live="polite"></div>
 
   <script src="js/script.js"></script>
 </body>

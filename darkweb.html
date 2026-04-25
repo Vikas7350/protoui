@@ -16,7 +16,10 @@
         <p class="eyebrow">Fraud Detection Platform</p>
         <h1>Dark Web</h1>
       </div>
-      <div class="status-pill danger-pill">Exposure watchlist active</div>
+      <div class="topbar-actions">
+        <div class="status-pill danger-pill">Exposure watchlist active</div>
+        <button class="secondary-button compact-button" type="button" data-toast-message="Dark web report sent to compliance.">Send Report</button>
+      </div>
     </header>
 
     <nav class="tabs" aria-label="Primary navigation">
@@ -31,55 +34,154 @@
       <section class="hero-panel compact">
         <div>
           <p class="eyebrow">Exposure intelligence</p>
-          <h2>Flagged accounts detected in underground datasets.</h2>
+          <h2>Accounts linked to leaked data, broker forums, and phishing kits.</h2>
           <p class="muted-text">
-            These users were matched against leaked credentials, wallets, or
-            brokered account packages circulating on hidden marketplaces.
+            These identities were matched against underground datasets and
+            suspicious channels where compromised financial accounts are traded.
           </p>
+        </div>
+        <div class="hero-metric">
+          <span>New mentions</span>
+          <strong>17</strong>
+          <p>Fresh dark web references found in the last crawl cycle</p>
         </div>
       </section>
 
-      <section class="card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">High-priority watchlist</p>
-            <h2>Flagged accounts</h2>
+      <section class="stats-grid network-grid">
+        <article class="card stat-card danger">
+          <div class="stat-header">
+            <span class="stat-icon danger-icon">!</span>
+            <span class="delta-pill danger-text">+6 new</span>
           </div>
-        </div>
+          <p>Flagged Identities</p>
+          <h3 class="counter" data-target="49">0</h3>
+          <span class="trend danger-text">Critical exposures monitored</span>
+        </article>
+        <article class="card stat-card">
+          <div class="stat-header">
+            <span class="stat-icon">⌁</span>
+            <span class="delta-pill up">+11 indexed</span>
+          </div>
+          <p>Forum Mentions</p>
+          <h3 class="counter" data-target="284">0</h3>
+          <span class="trend up">Marketplace monitoring active</span>
+        </article>
+        <article class="card stat-card safe-card">
+          <div class="stat-header">
+            <span class="stat-icon safe-icon">✓</span>
+            <span class="delta-pill safe">+9 resolved</span>
+          </div>
+          <p>Cases Closed</p>
+          <h3 class="counter" data-target="23">0</h3>
+          <span class="trend safe">Exposure takedowns completed</span>
+        </article>
+      </section>
 
-        <div class="flagged-list">
-          <article class="flagged-item">
+      <section class="darkweb-layout">
+        <article class="card">
+          <div class="section-heading">
             <div>
-              <h3>Nora Simmons</h3>
-              <p>Email + wallet leak detected in credential dump</p>
+              <p class="eyebrow">Critical</p>
+              <h2>Flagged accounts</h2>
             </div>
-            <span class="flag-tag">Critical</span>
-          </article>
-          <article class="flagged-item">
-            <div>
-              <h3>Account #A-10483</h3>
-              <p>Matched to resale listing from a known fraud forum</p>
+          </div>
+
+          <div class="flagged-list">
+            <article class="flagged-item">
+              <div>
+                <h3>Nora Simmons</h3>
+                <p>Email and wallet leak detected in a premium credential dump.</p>
+              </div>
+              <div class="appearance-badge">7 appearances</div>
+            </article>
+            <article class="flagged-item">
+              <div>
+                <h3>Account #A-10483</h3>
+                <p>Matched to a resale listing from a high-risk fraud market.</p>
+              </div>
+              <div class="appearance-badge">5 appearances</div>
+            </article>
+            <article class="flagged-item">
+              <div>
+                <h3>Leo Martinez</h3>
+                <p>Phone number surfaced inside a phishing kit log archive.</p>
+              </div>
+              <div class="appearance-badge">8 appearances</div>
+            </article>
+          </div>
+        </article>
+
+        <article class="stack-grid">
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Monitor</p>
+                <h2>Suspicious accounts</h2>
+              </div>
             </div>
-            <span class="flag-tag">High</span>
-          </article>
-          <article class="flagged-item">
-            <div>
-              <h3>Leo Martinez</h3>
-              <p>Phone number surfaced in phishing kit log archive</p>
+
+            <div class="suspicious-list">
+              <article class="suspicious-item">
+                <div>
+                  <h3>Account #B-22917</h3>
+                  <p>Recovery phrase exposure referenced in a wallet theft channel.</p>
+                </div>
+                <div class="appearance-badge warning-badge">3 appearances</div>
+              </article>
+              <article class="suspicious-item">
+                <div>
+                  <h3>Wallet-Z7-120</h3>
+                  <p>Observed in a broker post offering aged accounts for sale.</p>
+                </div>
+                <div class="appearance-badge warning-badge">2 appearances</div>
+              </article>
+              <article class="suspicious-item">
+                <div>
+                  <h3>Emma Watson</h3>
+                  <p>Similar credential pattern found in a combo list sample.</p>
+                </div>
+                <div class="appearance-badge warning-badge">4 appearances</div>
+              </article>
             </div>
-            <span class="flag-tag">Critical</span>
-          </article>
-          <article class="flagged-item">
-            <div>
-              <h3>Account #B-22917</h3>
-              <p>Recovery phrase exposure referenced in wallet theft channel</p>
+          </section>
+
+          <section class="card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Sources</p>
+                <h2>Intel channels</h2>
+              </div>
             </div>
-            <span class="flag-tag">High</span>
-          </article>
-        </div>
+            <div class="queue-list">
+              <article class="queue-item">
+                <div>
+                  <h3>Credential dumps</h3>
+                  <p>18 fresh entries matched to customer email fingerprints.</p>
+                </div>
+                <span class="risk-badge high">Hot</span>
+              </article>
+              <article class="queue-item">
+                <div>
+                  <h3>Fraud forums</h3>
+                  <p>6 new broker posts mentioning financial account resale.</p>
+                </div>
+                <span class="risk-badge medium">Active</span>
+              </article>
+              <article class="queue-item">
+                <div>
+                  <h3>Phishing kit logs</h3>
+                  <p>Recovered logs include two wallet identifiers from live cases.</p>
+                </div>
+                <span class="risk-badge medium">Watch</span>
+              </article>
+            </div>
+          </section>
+        </article>
       </section>
     </main>
   </div>
+
+  <div class="toast global-toast" id="globalToast" aria-live="polite"></div>
 
   <script src="js/script.js"></script>
 </body>

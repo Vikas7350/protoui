@@ -16,7 +16,10 @@
         <p class="eyebrow">Fraud Detection Platform</p>
         <h1>Settings</h1>
       </div>
-      <div class="status-pill">Workspace preferences</div>
+      <div class="topbar-actions">
+        <div class="status-pill">Workspace preferences</div>
+        <button class="secondary-button compact-button" type="button" data-toast-message="Configuration backup created.">Backup Config</button>
+      </div>
     </header>
 
     <nav class="tabs" aria-label="Primary navigation">
@@ -27,50 +30,145 @@
       <a href="settings.html" data-tab="settings">Settings</a>
     </nav>
 
-    <main class="page-grid settings-layout">
-      <section class="card settings-card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Alerting</p>
-            <h2>Telegram alerts</h2>
+    <main class="page-grid">
+      <section class="settings-layout">
+        <section class="card settings-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Alerting</p>
+              <h2>Telegram bot setup</h2>
+            </div>
           </div>
-        </div>
-        <p class="muted-text">
-          Send instant fraud notifications to your investigation team whenever
-          high-risk transactions are detected.
-        </p>
-        <div class="setting-row">
-          <span>Telegram bot connected</span>
-          <span class="pill on">Enabled</span>
-        </div>
-        <div class="setting-row">
-          <span>Critical alerts only</span>
-          <span class="pill">Enabled</span>
-        </div>
+          <p class="muted-text">
+            Configure a Telegram bot token and chat ID to notify your team when
+            high-risk fraud signals are detected.
+          </p>
+
+          <form class="settings-form" id="telegramForm">
+            <label class="field">
+              <span>Bot Token</span>
+              <input type="text" placeholder="123456:ABC-DEF..." value="642918:demo-bot-token">
+            </label>
+            <label class="field">
+              <span>Chat ID</span>
+              <input type="text" placeholder="@fraud_alerts" value="@fraudshield_ops">
+            </label>
+            <label class="field">
+              <span>Alert Channel</span>
+              <input type="text" placeholder="Critical alerts" value="critical-and-high-risk">
+            </label>
+
+            <div class="button-row">
+              <button class="primary-button" type="submit">Save Telegram Setup</button>
+              <button class="secondary-button" type="button" id="sendTestAlert">Send Test Alert</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card settings-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Model ops</p>
+              <h2>Model retraining</h2>
+            </div>
+          </div>
+          <p class="muted-text">
+            Update the model on a regular schedule so the fraud engine adapts to
+            new customer behavior and newly observed attack patterns.
+          </p>
+
+          <div class="setting-row">
+            <span>Retraining schedule</span>
+            <span class="pill">Every 7 days</span>
+          </div>
+          <div class="setting-row">
+            <span>Last completed run</span>
+            <span class="pill">3 hours ago</span>
+          </div>
+          <div class="setting-row">
+            <span>Validation score</span>
+            <span class="pill on">96.2%</span>
+          </div>
+
+          <div class="button-row top-gap">
+            <button class="primary-button" type="button" id="retrainModel">Start Retraining</button>
+            <button class="secondary-button" type="button" data-toast-message="Training logs opened for inspection.">Review Logs</button>
+          </div>
+        </section>
       </section>
 
-      <section class="card settings-card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Model ops</p>
-            <h2>Model retraining</h2>
+      <section class="settings-layout">
+        <section class="card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Workspace</p>
+              <h2>Alert preferences</h2>
+            </div>
           </div>
-        </div>
-        <p class="muted-text">
-          Schedule automatic retraining so the fraud engine adapts to fresh
-          transaction behavior and emerging attack patterns.
-        </p>
-        <div class="setting-row">
-          <span>Retraining schedule</span>
-          <span class="pill">Every 7 days</span>
-        </div>
-        <div class="setting-row">
-          <span>Last completed run</span>
-          <span class="pill">3 hours ago</span>
-        </div>
+          <div class="toggle-list">
+            <label class="toggle-row">
+              <div>
+                <h3>Push high-risk notifications</h3>
+                <p>Notify analysts instantly for high-confidence fraud events.</p>
+              </div>
+              <input class="toggle-input" type="checkbox" checked>
+              <span class="toggle-switch"></span>
+            </label>
+            <label class="toggle-row">
+              <div>
+                <h3>Auto-freeze critical transfers</h3>
+                <p>Place a temporary hold on P1 transactions until review.</p>
+              </div>
+              <input class="toggle-input" type="checkbox" checked>
+              <span class="toggle-switch"></span>
+            </label>
+            <label class="toggle-row">
+              <div>
+                <h3>Daily compliance digest</h3>
+                <p>Send end-of-day incident summaries to compliance managers.</p>
+              </div>
+              <input class="toggle-input" type="checkbox">
+              <span class="toggle-switch"></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">System profile</p>
+              <h2>Environment health</h2>
+            </div>
+          </div>
+          <div class="queue-list">
+            <article class="queue-item">
+              <div>
+                <h3>Fraud engine</h3>
+                <p>Primary model and rule engine healthy across all regions.</p>
+              </div>
+              <span class="risk-badge low">Online</span>
+            </article>
+            <article class="queue-item">
+              <div>
+                <h3>Dark web crawler</h3>
+                <p>Next crawl scheduled in 28 minutes with 2 active sources.</p>
+              </div>
+              <span class="risk-badge medium">Active</span>
+            </article>
+            <article class="queue-item">
+              <div>
+                <h3>Alert delivery</h3>
+                <p>Telegram and email delivery healthy, no failed sends detected.</p>
+              </div>
+              <span class="risk-badge low">Stable</span>
+            </article>
+          </div>
+        </section>
       </section>
     </main>
   </div>
+
+  <div class="toast global-toast" id="globalToast" aria-live="polite"></div>
 
   <script src="js/script.js"></script>
 </body>
